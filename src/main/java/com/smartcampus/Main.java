@@ -14,23 +14,23 @@ public class Main {
     public static HttpServer startServer() {
         // Instantiate our Application class
         SmartCampusApplication app = new SmartCampusApplication();
-        
+
         // Read the @ApplicationPath annotation to construct the base URI dynamically
         ApplicationPath appPath = app.getClass().getAnnotation(ApplicationPath.class);
         String path = appPath != null ? appPath.value() : "/";
-        
+
         if (!path.startsWith("/")) {
             path = "/" + path;
         }
         if (!path.endsWith("/")) {
             path = path + "/";
         }
-        
+
         String baseUri = HOST + path;
-        
+
         // ResourceConfig handles the deployment of the application classes
         final ResourceConfig rc = ResourceConfig.forApplication(app);
-        
+
         // Start and return the Grizzly server
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(baseUri), rc);
     }
@@ -41,6 +41,6 @@ public class Main {
         System.out.println("Discovery Endpoint: " + HOST + "/api/v1");
         System.out.println("Hit Ctrl-C to stop it...");
         System.in.read();
-        server.stop();
+        server.shutdown();
     }
 }
