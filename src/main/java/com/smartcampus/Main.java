@@ -9,7 +9,7 @@ import java.net.URI;
 import java.io.IOException;
 
 public class Main {
-    public static final String HOST = "http://localhost:8081";
+    public static final String HOST = "http://localhost:8080";
 
     public static HttpServer startServer() {
         // Instantiate our Application class
