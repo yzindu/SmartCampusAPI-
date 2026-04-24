@@ -23,7 +23,7 @@ A robust, scalable, and highly available RESTful API to manage rooms and sensors
    mvn exec:java
    ```
    *Alternatively, you can open the project in an IDE like IntelliJ IDEA or Eclipse and run the `Main.java` file directly.*
-5. The API will be available at `http://localhost:8081/api/v1`.
+5. The API will be available at `http://localhost:8080/api/v1`.
 
 ## Sample cURL Commands
 
@@ -31,33 +31,33 @@ Here are 5 sample `curl` commands to test the API:
 
 1. **Discovery Endpoint**
    ```bash
-   curl -X GET http://localhost:8081/api/v1
+   curl -X GET http://localhost:8080/api/v1
    ```
 
 2. **Create a Room**
    ```bash
-   curl -X POST http://localhost:8081/api/v1/rooms \
+   curl -X POST http://localhost:8080/api/v1/rooms \
    -H "Content-Type: application/json" \
    -d '{"id": "LIB-301", "name": "Library Quiet Study", "capacity": 50}'
    ```
 
 3. **Register a Sensor**
    ```bash
-   curl -X POST http://localhost:8081/api/v1/sensors \
+   curl -X POST http://localhost:8080/api/v1/sensors \
    -H "Content-Type: application/json" \
    -d '{"id": "CO2-001", "type": "CO2", "status": "ACTIVE", "roomId": "LIB-301"}'
    ```
 
 4. **Add a Sensor Reading (Sub-Resource)**
    ```bash
-   curl -X POST http://localhost:8081/api/v1/sensors/CO2-001/readings \
+   curl -X POST http://localhost:8080/api/v1/sensors/CO2-001/readings \
    -H "Content-Type: application/json" \
    -d '{"id": "READING-1", "timestamp": 1700000000000, "value": 412.5}'
    ```
 
 5. **Filter Sensors by Type**
    ```bash
-   curl -X GET "http://localhost:8081/api/v1/sensors?type=CO2"
+   curl -X GET "http://localhost:8080/api/v1/sensors?type=CO2"
    ```
 
 ---
